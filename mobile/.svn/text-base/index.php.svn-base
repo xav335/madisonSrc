@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html manifest="mp.manifest">
+<head>
+<title>MadisonPiercing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="Madison Piercing webapp" />
+<meta name="keywords" content="madison piercing, piercing, bordeaux" />
+<meta name="author" content="Iconeo" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css" type="text/css" media="screen"/>
+<style type="text/css" media="screen">@import "js/jqtouch.css";</style>
+
+<!-- Scripts -->
+<script src="js/jqtouch.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery-1.7.min.js" type="application/x-javascript" charset="utf-8"></script>
+<script src="js/jqtouch-jquery.min.js" type="application/x-javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=fr"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="js/ios-orientationchange-fix.js"></script>
+
+</head>
+<body>
+
+<!-- Home -->
+<div id="home">
+	<div class="top">
+		<a href="#" style="text-decoration:none;font-size:15px;"><img src="img/logo.svg" alt="" title="" /><br/>- MENU -</a>
+	</div>
+	<div class="toolbar">
+		<a href="#home" class="dissolve activate">Madison Piercing</a><br/>
+		<a href="#hygiene" class="dissolve">Hygiène et stérilisation</a><br/>
+		<a href="#photos" class="dissolve">Galerie</a><br/>
+		<a href="#video" class="dissolve">Madison Piercing en vidéo</a><br/>
+		<a href="#faq" class="dissolve">Foire aux Questions</a><br/><br/>
+		<a href="#contact" class="dissolve">Contact</a><br/>
+		<a href="#" class="dissolve iti">Venir chez Madison Piercing</a>
+	</div>
+	<div style="margin:0 20px;">
+		<h1 class="rouge">Madison Piercing</h1>
+		<p style="margin-top:20px;">Marie est pierceur professionnelle depuis 1992, elle définit le piercing comme une modification corporelle à visée esthétique nécessitant un certain nombre de précautions hygiéniques et médicales réglementaires et obligatoires.</p>
+		<p>Marie a participé à de nombreuses  conventions  et a fait ses armes entre Montréal et Miami. Avec son époux Michel, ils s'établissent à Bordeaux en 1992 et ouvrent la boutique Michel Tattoo'n Family. Elle travaille tout d'abord à l'étage du studio  avant d'ouvrir la boutique spécialisée Madison Piercing  juste en face. Avec un mélange irremplaçable de théorie et d'expérience, nous  formons une équipe simple, souriante et efficace qui saura vous mettre en confiance et vous expliquer toutes les étapes nécessaires pour prendre soin de votre piercing.</p>
+		<p>Nous travaillons en collaboration avec Hépatite Service et Sida InfoService et nous participons activement à la mise en commun des pratiques professionnelles concernant l'hygiène afin de réaliser une charte commune appuyée sur l'arrêté du 11 mars 2009 publié au journal officiel.</p>
+		<p><img src="img/marie.jpg" alt="" /></p>
+	</div>
+	<a href="#" class="haut">Haut de page</a>
+</div>
+<!-- Fin Home -->
+
+<!-- Hygiène -->
+<div id="hygiene">
+	<div class="top">
+		<a href="#" style="text-decoration:none;font-size:15px;"><img src="img/logo.svg" alt="" title="" /><br/>- MENU -</a>
+	</div>
+	<div class="toolbar">
+		<a href="#home" class="dissolve">Madison Piercing</a><br/>
+		<a href="#hygiene" class="dissolve activate">Hygiène et stérilisation</a><br/>
+		<a href="#photos" class="dissolve">Galerie</a><br/>
+		<a href="#video" class="dissolve">Madison Piercing en vidéo</a><br/>
+		<a href="#faq" class="dissolve">Foire aux Questions</a><br/><br/>
+		<a href="#contact" class="dissolve">Contact</a><br/>
+		<a href="#" class="dissolve iti">Venir chez Madison Piercing</a>
+	</div>
+	<div style="margin:0 20px;">
+		<h1 class="rouge">Hygiene et sterilisation</h1>
+		<p style="margin-top:20px;">Les aiguilles utilisées sont <span class="rouge">stériles</span> et <span class="rouge">à usage unique</span>. Tout le matériel qui n'est pas jetable entrant en œuvre est <span class="rouge">nettoyé par ultrasons, décontaminé</span> (trempage bain Hexanios GR+) et <span class="rouge">stérilisé</span> sous sachet scellé étanche avec une autoclave classe B (cycle Prion). C'est le seul protocole et matériel vous garantissant une <span class="rouge">hygiène parfaite</span>.</p>
+		<p>Les déchets d'activité produits par Madison Piercing sont stockés dans des containers spécifiques et labélisés, ces déchets sont incinérés mensuellement par un organisme compétent.</p>
+		<p style="text-align:center;"><img src="img/autoclave.jpg" alt="" /></p>
+	</div>
+	<a href="#" class="haut">Haut de page</a>
+</div>
+<!-- Fin Hygiène -->
+
+<!-- Galerie -->
+<div id="photos">
+	<div class="top">
+		<a href="#" style="text-decoration:none;font-size:15px;"><img src="img/logo.svg" alt="" title="" /><br/>- MENU -</a>
+	</div>
+	<div class="toolbar">
+		<a href="#home" class="dissolve">Madison Piercing</a><br/>
+		<a href="#hygiene" class="dissolve">Hygiène et stérilisation</a><br/>
+		<a href="#photos" class="dissolve activate">Galerie</a><br/>
+		<a href="#video" class="dissolve">Madison Piercing en vidéo</a><br/>
+		<a href="#faq" class="dissolve">Foire aux Questions</a><br/><br/>
+		<a href="#contact" class="dissolve">Contact</a><br/>
+		<a href="#" class="dissolve iti">Venir chez Madison Piercing</a>
+	</div>
+	<div style="margin:0 20px;">
+		<h1 class="rouge">Galerie</h1>
+		<!-- Galerie -->
+		<p id="pleinecran">Pour profiter pleinement des photos, tournez votre écran.</p>
+		<div id='galerie' class='swipe'>
+			<div>
+				<?php
+					$rep = "photos_mp/";
+					$dir = opendir($rep);
+					while ($f = readdir($dir)) 
+					{	
+						if(is_file($rep.$f)) 
+						{
+							$tab_dir[] = $f;
+						}
+					}
+					natcasesort($tab_dir);
+					foreach($tab_dir as $elem) 
+					{
+						echo '<div class="galerie"><img src="photos_mp/'.$elem.'" alt="" title="" /></div>';
+					}
+				?>
+			</div>
+		</div>
+		<!-- Fin Galerie -->
+	</div>
+	<a href="#" class="haut">Haut de page</a>
+</div>
+<!-- Fin Galerie -->
+
+<!-- FAQ -->
+<div id="faq">
+	<div class="top">
+		<a href="#" style="text-decoration:none;font-size:15px;"><img src="img/logo.svg" alt="" title="" /><br/>- MENU -</a>
+	</div>
+	<div class="toolbar">
+		<a href="#home" class="dissolve">Madison Piercing</a><br/>
+		<a href="#hygiene" class="dissolve">Hygiène et stérilisation</a><br/>
+		<a href="#photos" class="dissolve">Galerie</a><br/>
+		<a href="#video" class="dissolve">Madison Piercing en vidéo</a><br/>
+		<a href="#faq" class="dissolve activate">Foire aux Questions</a><br/><br/>
+		<a href="#contact" class="dissolve">Contact</a><br/>
+		<a href="#" class="dissolve iti">Venir chez Madison Piercing</a>
+	</div>
+	<div style="margin:0 20px;">
+		<h1 class="rouge">Foire aux Questions</h1>
+		<p style="margin-top:20px;"><span class="rouge">Comment les piercings sont-ils réalisés ?</span><br/>
+		Tous les piercings sont réalisés en champ stérile, sans utiliser de pince pour certains, une méthode sûre, douce et rapide.</p>
+		<p><span class="rouge">Comment les déchets infectieux produits sont-ils pris en charge ?</span><br/>
+		Les déchets liés à notre activité sont stockés dans des containers spécifiques inviolables et labellisés, entreposés avant collecte dans un local inaccessible au public. Ils sont collectés mensuellement par La Collecte Médicale qui assure leur incinération.</p>
+		<p><span class="rouge">Se faire piercer fait-il mal ?</span><br/>
+		Un piercing réalisé par un professionnel expérimenté ne donne lieu qu'à une simple sensation de pincement, comme c'est le cas lors du perçage d'un lobe d'oreille. Notre méthode simple, douce et rapide vous rendra cette expérience exaltante.</p>
+		<p><span class="rouge">Quels bijoux sont proposés pour faire un piercing ?</span><br/>
+		Un très vaste choix de bijoux est proposé pour chaque piercing, dès la première pose, en acier d'implant 316LVM F-138, en titane d'implant 6AL4V ELI F-136.</p>
+		<p><span class="rouge">Comment prendre soins d'un nouveau piercing?</span><br/>
+		La contamination des plaies par des micro organismes se fait le plus souvent parles mains. Il faudra bien suivre nos conseils sur la feuille de soin et faire les visites de contrôle.</p>
+		<p><span class="rouge">Faut-il prendre rendez-vous pour se faire piercer ?</span><br/>
+		Non, vous pouvez venir vous faire piercer ou changer votre bijou librement, sans rendez-vous :<br/>
+		</p>
+		<p><span class="rouge">Percez-vous les mineurs ?</span><br/>
+		Une personne mineure souhaitant se faire percer doit être :<br/>
+		- +14 ans : munie de sa pièce d'identité, elle doit être accompagnée d'un parent (tuteur légal) muni également  d'une pièce d'identité<br/>
+		- +16 ans:munie de sa pièce d'identité et  d'une attestation écrite par les parents (tuteur légal) vérifiable nous autorisant à réaliser le piercing (comportant un numéro de téléphone ou les parents seront contactés pour vérification) ainsi que les pièces d'identité (ou les photocopies recto-verso) des parents.<br/>
+		<span class="italic">Nous ne réalisons pas de transdermique sur les - 18 ans.</span></p>
+		<p><span class="rouge">Je suis allergique à beaucoup de choses. Puis-je me faire piercer ?</span><br/>
+		Oui, car les bijoux utilisés pour réaliser le piercing sont en acier ou en titane d'implant. Ces matériaux sont biocompatibles, ils ont été conçus pour être portés à long terme dans l'organisme sans aucun risque allergique. L'acier d'implant est utilisé depuis plus de 30 ans en chirurgie pour constituer les implants médicaux (broches etc.), le titane d'implant est lui utilisé depuis plus d'une dizaine d'années.</p>
+		<p><span class="rouge">Un piercing à la lèvre peut-il endommager les gencives ?</span><br/>
+		Un piercing à la lèvre peut être porté en toute sécurité sans aucun risque pour les gencives, lorsque deux facteurs sont réunis :<br/>
+		- le piercing est réalisé perpendiculairement à la lèvre.<br/>
+		- le bijou porté est un bioplast.</p>
+		<p><span class="rouge">Qu'est-ce qu'un "micro dermique" ou "dermal anchor" ? Les réalisez-vous ?</span><br/>
+		OUI. Le dermal est un bijou implanté dans la peau, comme un piercing, mais avec une seule et unique extrémité. Ce type de bijou donne satisfaction sur des zones ou un piercing de surface était difficilement viable et peut recevoir des terminaisons à visser variées, discrètes et surtout: plates (visserie interne au bijou).<br/>
+		Nous utilisons pour installer le dermal une méthode simple, douce et rapide.</p>
+	</div>
+	<a href="#" class="haut">Haut de page</a>
+</div>
+<!-- Fin FAQ -->
+
+<!-- Vidéo -->
+<div id="video">
+	<div class="top">
+		<a href="#" style="text-decoration:none;font-size:15px;"><img src="img/logo.svg" alt="" title="" /><br/>- MENU -</a>
+	</div>
+	<div class="toolbar">
+		<a href="#home" class="dissolve">Madison Piercing</a><br/>
+		<a href="#hygiene" class="dissolve">Hygiène et stérilisation</a><br/>
+		<a href="#photos" class="dissolve">Galerie</a><br/>
+		<a href="#video" class="dissolve activate">Madison Piercing en vidéo</a><br/>
+		<a href="#faq" class="dissolve">Foire aux Questions</a><br/><br/>
+		<a href="#contact" class="dissolve">Contact</a><br/>
+		<a href="#" class="dissolve iti">Venir chez Madison Piercing</a>
+	</div>
+	<div style="margin:0 20px;">
+		<h1 class="rouge">En video</h1>
+		<video controls="controls" id="videohtml5" poster="html5video/mp_boutique.jpg" onclick="if(/Android/.test(navigator.userAgent))this.play();">
+			<source src="html5video/mp_boutique.mp4" type="video/mp4" />
+			<source src="html5video/mp_boutique.webm" type="video/webm" />
+			<source src="html5video/mp_boutique.ogv" type="video/ogg" />
+		</video>
+	</div>
+	<a href="#" class="haut">Haut de page</a>
+</div>
+<!-- Fin Vidéo -->
+
+<!-- Contactez-nous -->
+<div id="contact">
+	<div class="top">
+		<a href="#" style="text-decoration:none;font-size:15px;"><img src="img/logo.svg" alt="" title="" /><br/>- MENU -</a>
+	</div>
+	<div class="toolbar">
+		<a href="#home" class="dissolve">Madison Piercing</a><br/>
+		<a href="#hygiene" class="dissolve">Hygiène et stérilisation</a><br/>
+		<a href="#photos" class="dissolve">Galerie</a><br/>
+		<a href="#video" class="dissolve">Madison Piercing en vidéo</a><br/>
+		<a href="#faq" class="dissolve">Foire aux Questions</a><br/><br/>
+		<a href="#contact" class="dissolve activate">Contact</a><br/>
+		<a href="#" class="dissolve iti">Venir chez Madison Piercing</a>
+	</div>
+	<div style="margin:0 20px;">
+		<h1 class="rouge">Contactez-nous</h1>
+		<a href="http://www.facebook.com/MadisonPiercing" rel="external" class="fb"><img src="img/facebook.png" alt="" title="" /></a>
+		<p>
+			<strong>Madison Piercing</strong><br/>
+			18, rue de Guienne<br/>
+			33000 Bordeaux<br/>
+			Tél. <a href="tel:+33556529201">05 56 52 92 01</a><br/>
+			contact@madisonpiercing.fr
+		</p>
+		<p>
+			<strong>Horaires d'ouverture</strong><br/>
+			Consulter Facebook
+		</p>
+		<p>
+			<div class="done">
+				<b>Merci !</b> Nous avons bien reçu votre message.
+			</div>
+			<form action="process.php" method="post" id="contactform">
+				<label for="prenom" style="display: none;">Prénom*</label><input type="text" value="" placeholder="Prénom*" name="prenom" id="prenom" tabindex="-1" /><br/>
+				<label for="nom" style="display: none;">Nom*</label><input type="text" value="" placeholder="Nom*" name="nom" id="nom" tabindex="-1" /><br/>
+				<label for="email" style="display: none;">e-mail*</label>
+				<input type="email" value="" placeholder="e-mail*" name="email" id="email" tabindex="-1" /><br/>
+				<label for="telephone" style="display: none;">Téléphone*</label><input type="tel" value="" placeholder="Téléphone*" name="telephone" id="telephone" tabindex="-1" onkeypress="return isNumberKey(event)" /><br/>
+				<label for="msg" style="display: none;">Votre message*</label>
+				<textarea tabindex="-1" rows="10" cols="10" name="msg" id="msg" placeholder="Votre message*"></textarea>
+				<input type="submit" id="submit" class="envoyer" tabindex="-1" />
+				<span style="font-style:italic;color:#fff;font-size:12px;">Les champs comportant une * sont obligatoires.</span>
+			</form>
+		</p>
+	</div>
+	<a href="#" class="haut">Haut de page</a>
+</div>
+<!-- Fin Contactez-nous -->
+
+<script src="js/swipe.js"></script>
+<script>
+	var galerie = new Swipe(document.getElementById('galerie'));
+	window.addEventListener('load', function(){  
+		setTimeout(function(){ window.scrollTo(0, 1); }, 0 );
+	});
+</script>
+</body>
+</html>

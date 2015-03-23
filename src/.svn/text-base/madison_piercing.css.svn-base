@@ -1,0 +1,47 @@
+/* CSS file */
+.labelFormItem{
+	fontSize: 14;
+	color: #000000;
+	fontFamily: myriadPro;
+}
+
+.alertBox{
+	backgroundColor: #AE1729;
+	borderColor:#AE1729;
+	backgroundAlpha: 0.9;
+	borderAlpha: 0.9;	
+	font-weight: bold;
+}
+
+Grid{
+	horizontal-gap: 0;
+	vertical-gap: 0;
+	border-sides: bottom;
+	border-color: #4F4F4F;
+	border-thickness: 2;
+	border-style: solid;
+	corner-radius: 10;
+}
+
+GridRow{
+	border-sides: right;
+	border-color: #4F4F4F;
+	border-thickness: 2;
+	border-style: solid;
+	corner-radius: 10;
+}
+
+GridItem{
+	border-sides: "left top";
+	border-color: #4F4F4F;
+	border-thickness: 2;
+	border-style: solid;	
+	corner-radius: 5;
+}
+
+.spacerGridRow{
+	border-sides: top;
+	border-color: #4F4F4F;
+	border-thickness: 2;
+	border-style: solid;	
+}

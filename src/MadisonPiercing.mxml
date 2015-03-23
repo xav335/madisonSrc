@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	backgroundColor="#FFFFFF"
+	backgroundImage="@Embed(source='../images/mp_background.jpg')"
+	width="996" height="580"
+	currentState="home"
+	verticalScrollPolicy="auto" xmlns:components="com.iconeo.components.*"
+	historyManagementEnabled="false"
+	creationComplete="{init()}" xmlns:local="*">
+	
+	<mx:Style source="madison_piercing.css"/>
+	
+	<mx:Image x="39" y="9" source="../images/mp_logo.png"
+		click="{currentState='home'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"/>
+	<mx:Image x="861" y="12" source="../images/mp_logo_tattoo.png"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		click="navigateToURL(new URLRequest('http://www.micheltattoo.com'));" id="image1"/>
+	<mx:Image x="561" y="12" source="../images/facebook.png"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		click="navigateToURL(new URLRequest('http://www.facebook.com/pages/Bordeaux-France/madison-piercing/205830306103861'));" id="image151"/>	
+	<mx:Image x="39" y="210"
+		source="{(currentState=='accueil')?'../images/mp_btn_accueil_rouge.png':'../images/mp_btn_accueil_blanc.png'}"
+		click="{currentState='accueil'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Image x="39" y="250"
+		source="{(currentState=='contact')?'../images/mp_btn_contact_rouge.png':'../images/mp_btn_contact_blanc.png'}"
+		click="{currentState='contact'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Image x="39" y="290"
+		source="{(currentState=='acces')?'../images/mp_btn_plan_rouge.png':'../images/mp_btn_plan_blanc.png'}"
+		click="{currentState='acces'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Image x="39" y="330"
+		source="{(currentState=='liens')?'../images/mp_btn_liens_rouge.png':'../images/mp_btn_liens_blanc.png'}"
+		click="{currentState='liens'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Image x="39" y="370"
+		source="{(currentState=='hygiene')?'../images/mp_btn_hygiene_rouge.png':'../images/mp_btn_hygiene_blanc.png'}"
+		click="{currentState='hygiene'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Image x="39" y="410"
+		source="{(currentState=='galerie')?'../images/mp_btn_galerie_rouge.png':'../images/mp_btn_galerie_blanc.png'}"
+		click="{currentState='galerie'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Image x="39" y="450"
+		source="{(currentState=='tarifs')?'../images/mp_btn_tarifs_rouge.png':'../images/mp_btn_tarifs_blanc.png'}"
+		click="{currentState='tarifs'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Image x="39" y="490"
+		source="{(currentState=='FAQ')?'../images/mp_btn_faq_rouge.png':'../images/mp_btn_faq_blanc.png'}"
+		click="{currentState='FAQ'}"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		rollOverEffect="glowIn"
+		rollOutEffect="glowOut"/>
+	<mx:Canvas x="882" y="560" width="114" height="20"
+		useHandCursor="true" buttonMode="true" mouseChildren="false"
+		click="navigateToURL(new URLRequest('http://www.iconeo.fr'));"/>
+	
+	
+	<mx:Fade id="showEffect" alphaFrom="0" alphaTo="1" duration="500"/>
+	<mx:Fade id="hideEffect" alphaFrom="1" alphaTo="0" duration="500"/>
+	<mx:Fade id="cacheHideEffect" alphaFrom="1" alphaTo="0" duration="500"
+		effectStart="canvasApercu.setStyle('hideEffect', null);"
+		effectEnd="canvasApercu.setStyle('hideEffect', cacheHideEffect);"/>
+	<mx:Glow id="glowIn" duration="200" alphaFrom="0" alphaTo="1"
+		blurXFrom="0" blurXTo="20" blurYFrom="0" blurYTo="20" color="0x888888"/>
+	<mx:Glow id="glowOut" duration="200" alphaFrom="1" alphaTo="0"
+		blurXFrom="20" blurXTo="0" blurYFrom="20" blurYTo="0" color="0x888888"/>
+	
+	<mx:states>
+		<mx:State name="home">
+			<mx:AddChild position="firstChild">
+				<mx:Image x="162" y="200" source="../images/mp_marie.png"
+					visible="{!flag}"
+					hideEffect="hideEffect" showEffect="showEffect"/>
+			</mx:AddChild>
+			<mx:AddChild position="firstChild">
+				<mx:Image x="162" y="200" source="../images/mp_marie.png"
+					visible="{flag}"
+					hideEffect="hideEffect" showEffect="showEffect"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image x="544" y="138" source="../images/mp_polaroid.png" showEffect="showEffect"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<local:ScenarioDisplay id="videoAccueil"
+					x="549" y="143" width="348" height="279"
+					idClient="1013"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image id="imgBoutique" x="549" y="143" source="../images/mp_image_boutique_accueil.png" click="{imgBoutique.visible = false; videoAccueil.entamerLectureScenario()}"/>
+			</mx:AddChild>
+			<mx:SetProperty target="{image1}" name="x" value="884"/>
+			<mx:AddChild position="lastChild">
+				<mx:Image x="799" y="102" source="../images/mp_piercing_polaroid.png"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Canvas x="595" y="430" width="274" height="52" backgroundColor="#FFFFFF">
+				</mx:Canvas>
+			</mx:AddChild>
+		</mx:State>
+		
+		<mx:State name="accueil">
+			<mx:AddChild position="lastChild">
+				<mx:Canvas x="300" y="125" width="686" height="373" backgroundColor="#FFFFFF" backgroundAlpha="0.8">
+					<mx:Text x="10" y="0" width="371" height="363">
+						<mx:htmlText>
+						<![CDATA[
+<TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Marie est pierceur professionnelle depuis 1992,  elle définit le piercing comme une modification corporelle à visée esthétique nécessitant un certain nombre de précautions hygiéniques et médicales réglementaires et obligatoires.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Marie a participé à de nombreuses  conventions  et a fait ses armes entre Montréal et Miami. Avec son époux Michel, ils s&apos;établissent à Bordeaux en 1992 et ouvrent la boutique Michel Tattoo&apos;n Family . Elle travaille tout d&apos;abord à l&apos;étage du studio  avant d&apos;ouvrir la boutique spécialisée Madison Piercing  juste en face. Avec un mélange irremplaçable de théorie et d&apos;expérience, nous  formons une équipe  simple, souriante et efficace qui saura vous mettre en confiance et vous expliquer toutes les étapes nécessaires pour prendre soin de votre piercing</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Nous travaillons en collaboration avec Hépatite Service et Sida InfoService et nous participons activement à la mise en commun des pratiques professionnelles concernant l&apos;hygiène afin de réaliser une charte commune appuyée sur l&apos;arrêté du 11 mars 2009 publié au journal officiel.</FONT></P></TEXTFORMAT>
+						]]>
+					</mx:htmlText>
+						
+					</mx:Text>
+					<mx:Image x="419" y="10" source="../images/mp_marie_couleurs.jpg"
+						width="257" height="338"
+						filters="{[new DropShadowFilter()]}"/>
+				</mx:Canvas>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_accueil.png"/>
+			</mx:AddChild>
+		</mx:State>
+		
+		<mx:State name="contact">
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_contact.png"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Canvas x="300" y="125" width="686" height="373" backgroundColor="#FFFFFF" backgroundAlpha="0.8">
+					<mx:Text x="111" y="38" width="270" height="67">
+						<mx:htmlText>
+						<![CDATA[
+<TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">Pour nous contacter, remplissez le formulaire ci-dessous et cliquez sur envoyer. <B></B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#FF0000" LETTERSPACING="0" KERNING="0"><B></B><FONT COLOR="#000000"></FONT></FONT></P></TEXTFORMAT>
+						]]>
+						</mx:htmlText>
+					</mx:Text>
+					<mx:Text x="428" y="97" width="227" height="191">
+						<mx:htmlText>
+						<![CDATA[
+<TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#FF0022" LETTERSPACING="0" KERNING="0"><B>MADISON PIERCING</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">18, rue de Guienne</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"> (côté rue Sainte Catherine)</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">33000 BORDEAUX </FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">(France)</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">Tel : 05 56 52 92 01</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#FF0022" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#FF0022" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT>
+						]]>
+						</mx:htmlText>
+					</mx:Text>
+					<mx:Form id="formulaire" x="10" y="130" width="371" height="182">
+						<mx:FormItem label="Adresse mail" labelStyleName="labelFormItem" width="100%">
+							<mx:TextInput text="adresse@mail.com" id="email" width="100%"
+								focusIn="{if(!clickOnceMail){email.text = '';clickOnceMail = true;}}"
+								keyDown="handleKeyDown(event)" />
+						</mx:FormItem>
+						<mx:FormItem label="Nom et prénom" direction="horizontal" labelStyleName="labelFormItem" width="100%">
+							<mx:TextInput text="Prénom Nom" id="nom" width="100%"
+								focusIn="{if(!clickOnceNom){nom.text = '';clickOnceNom = true;}}"
+								keyDown="handleKeyDown(event)" />
+						</mx:FormItem>
+						<mx:FormItem label="Message" direction="horizontal" labelStyleName="labelFormItem" width="100%" height="100%">
+							<mx:TextArea text="Message" id="message" width="100%" height="100%"
+								focusIn="{if(!clickOnceMessage){message.text = '';clickOnceMessage = true;}}"/>
+						</mx:FormItem>
+					</mx:Form>
+					<mx:Image source="../images/mp_btn_envoyer.png" click="{if(clickOnceMail || clickOnceNom || clickOnceMessage)envoyerFormulaireContact()}"
+						x="283" y="320" enabled="false"
+						useHandCursor="true" buttonMode="true" mouseChildren="false"/>
+				</mx:Canvas>
+			</mx:AddChild>
+		</mx:State>
+		
+		<mx:State name="acces">
+			<mx:AddChild position="lastChild">
+				<mx:Canvas x="231" y="125" width="755" height="398" backgroundColor="#FFFFFF" backgroundAlpha="0.8">
+					<mx:Text x="510" y="29" width="227" height="314">
+						<mx:htmlText>
+						<![CDATA[
+<TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#FF0022" LETTERSPACING="0" KERNING="0"><B>MADISON PIERCING</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">18, rue de Guienne</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"> (côté rue Sainte Catherine)</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">33000 BORDEAUX </FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">(France)</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">Tel : 05 56 52 92 01</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#FF0000" LETTERSPACING="0" KERNING="0"><B>Infos Horaires</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">A consulter</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="CENTER"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">sur le lien FACEBOOK</FONT></P></TEXTFORMAT>
+						]]>
+						</mx:htmlText>
+						
+					</mx:Text>
+					<mx:Image id="google" x="10" y="10" width="502" height="379" source="../images/google.png" click="navigateToURL(new URLRequest('https://www.google.fr/maps/place/Madison+Piercing/@44.835313,-0.573246,17z/data=!3m1!4b1!4m2!3m1!1s0xd5527cf493da1f7:0x5758da28299685c2'));"/>
+				</mx:Canvas>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_plan.png"/>
+			</mx:AddChild>
+		</mx:State>
+		
+		<mx:State name="liens">
+			<mx:AddChild position="lastChild">
+				<components:Liens x="300" y="125" width="686" height="373"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_liens.png"/>
+			</mx:AddChild>
+		</mx:State>
+		
+		<mx:State name="hygiene">
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_hygiene.png"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Canvas x="300" y="125" width="686" height="373" backgroundColor="#FFFFFF" backgroundAlpha="0.8">
+					<mx:Text x="10" y="26" width="371" height="273">
+						<mx:htmlText>
+						<![CDATA[
+<TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="16" COLOR="#000000" LETTERSPACING="0" KERNING="0">Les aiguilles utilisées sont <FONT COLOR="#FF0000">stériles</FONT> et à <FONT COLOR="#FF0000">usage unique</FONT>. Tout le matériel qui n&apos;est pas jetable entrant en oeuvre  est <FONT COLOR="#FF0000">nettoyé par ultrasons</FONT>, <FONT COLOR="#FF0000">décontaminé</FONT> (trempage bain Hexanios GR+) et <FONT COLOR="#FF0000">stérilisé</FONT> sous sachet scellé étanche avec une autoclave classe B (cycle Prion). C&apos;est le seul protocole et matériel vous garantissant une <FONT COLOR="#FF0000">hygiène parfaite</FONT>.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="16" COLOR="#000000" LETTERSPACING="0" KERNING="0">Les déchets d&apos;activité produits par Madison Piercing sont stockés dans des containers spécifiques et labélisés, ces déchets sont incinérés mensuellement par un organisme compétent.</FONT></P></TEXTFORMAT>
+						]]>
+						</mx:htmlText>
+					</mx:Text>
+					<mx:VideoDisplay id="videoHygiene" x="389" y="60" width="287" height="239"
+						source="http://www.madisonpiercing.fr/videos/mp_hygiene.flv"
+						autoRewind="true"
+						rewind="videoHygiene.play()"/>
+				</mx:Canvas>
+			</mx:AddChild>
+		</mx:State>
+		
+		<mx:State name="tarifs">
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_tarifs.png"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Canvas x="300" y="125" width="686" height="373" backgroundColor="#FFFFFF" backgroundAlpha="0.8">
+					<mx:Text x="10" y="76" width="206" height="228">
+						<mx:htmlText>
+					<![CDATA[
+<TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">Ces tarifs incluent:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">Le bijou<FONT FACE="Verdana"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">L’acte <FONT FACE="Verdana"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">L’explication des soins<FONT FACE="Verdana"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">Le suivi afin d&apos;avoir une bonne cicatrisation<FONT FACE="Verdana"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0">Nos bijoux sont en Titane, Acier chirurgical (nouvelles normes EU) ou en Bioplast</FONT></P></TEXTFORMAT>
+					]]>
+						</mx:htmlText>
+					</mx:Text>
+					<components:Tarifs x="235" y="10" width="441" horizontalScrollPolicy="off"/>
+				</mx:Canvas>
+			</mx:AddChild>
+		</mx:State>
+		
+		<mx:State name="FAQ">
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_faq.png"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Canvas x="300" y="125" width="686" height="373" backgroundColor="#FFFFFF" backgroundAlpha="0.8">
+					<mx:Text x="10" y="10" width="648">
+						<mx:htmlText>
+					<![CDATA[
+<TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Comment les piercings sont-ils réalisés ?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Tous les piercings sont réalisés en champ stérile, sans utiliser de pince pour certains, une méthode sûre, douce et rapide.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Comment les déchets infectieux produits sont-ils pris en charge ?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Les déchets liés à notre activité sont stockés dans des containers spécifiques inviolables et labellisés, entreposés avant collecte dans un local inaccessible au public. Ils sont collectés mensuellement par La Collecte Médicale qui assure leur </FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">incinération.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Se faire piercer fait-il mal ?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Un piercing réalisé par un professionnel expérimenté ne donne lieu qu&apos;à une simple sensation de pincement, comme c&apos;est le cas lors du perçage d&apos;un lobe d&apos;oreille. Notre méthode simple, douce et rapide vous rendra cette expérience exaltante.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Quels bijoux sont proposés pour faire un piercing ?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Un très vaste choix de bijoux est proposé pour chaque piercing, dès la première pose, en acier d&apos;implant 316LVM F-138, en titane d&apos;implant 6AL4V ELI F-136.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Comment prendre soins d&apos;un nouveau piercing?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">La contamination des plaies par des micro organismes se fait le plus souvent parles mains. Il faudra bien suivre nos conseils sur la feuille de soin et faire les visites de contrôle.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Faut-il prendre rendez-vous pour se faire piercer ?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Non,</B> vous pouvez venir vous faire piercer ou changer votre bijou librement, <B>sans rendez- vous</B>:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><FONT FACE="Verdana" SIZE="10"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Percez-vous les mineurs ?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Une personne mineure souhaitant se faire percer doit être:</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>+14 ans : munie de sa pièce d&apos;identité, elle doit être accompagnée d&apos;un parent (tuteur légal) muni également  d&apos;une pièce d&apos;identité </B><FONT FACE="Verdana" SIZE="10"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>ou</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>+16 ans:munie de sa pièce d&apos;identité et  d&apos;une attestation écrite par les parents (tuteur légal) vérifiable</B> nous autorisant à réaliser le piercing (comportant un numéro de téléphone ou les parents seront contactés pour vérification) ainsi que les pièces d&apos;identité (ou les photocopies recto-verso) des parents.</FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B></B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Exemple d&apos;autorisation parentale:</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Nom:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Prénom:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Adrresse:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Numéro de téléphone:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">  Je soussigné (nom, prénom) autorise mon fils/ma fille(nom, prénom, date de naissance) à se percer le/la (nom du piercing)</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Agissant en plein accord avec le père/lamère (+nom, prénom)</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Date:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Lieu:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0">Signature: </FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Verdana" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Nous ne réalisons pas de transdermique sur les - 18 ans.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Je suis allergique à beaucoup de choses. Puis-je me faire piercer?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Oui,</B> car les bijoux utilisés pour réaliser le piercing sont en acier ou en titane d&apos;implant. Ces matériaux sont <B>biocompatibles,</B> ils ont été conçus pour être portés à long terme dans l&apos;organisme sans aucun risque allergique. L&apos;acier d&apos;implant est utilisé depuis plus de 30 ans en chirurgie pour constituer les implants médicaux (broches etc.), le titane d&apos;implant est lui utilisé depuis plus d&apos;une dizaine d&apos;années.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Un piercing à la lèvre peut-il endommager les gencives?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Un piercing à la lèvre peut être porté en toute sécurité sans aucun risque pour les gencives, lorsque deux facteurs sont réunis:</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">le piercing est réalisé perpendiculairement à la lèvre.<FONT FACE="Verdana" SIZE="10"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><LI><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">le bijou porté est un bioplast.<FONT FACE="Verdana" SIZE="10"></FONT></FONT></LI></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="14" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>Qu&apos;est-ce qu&apos;un &quot;micro dermique&quot; ou &quot;dermal anchor&quot;?.Les réalisez-vous?</B></FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0"><B>OUI.</B> Le dermal est un bijou implanté dans la peau, comme un piercing, mais avec une seule et unique extrémité. Ce type de bijou donne satisfaction sur des zones ou un piercing de surface était difficilement viable et peut recevoir des terminaisons à visser variées, discrètes et surtout: plates.(visserie interne au bijou).</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="12" COLOR="#000000" LETTERSPACING="0" KERNING="0">Nous utilisons pour installer le dermal une méthode simple, douce et rapide.</FONT></P></TEXTFORMAT><TEXTFORMAT LEADING="2"><P ALIGN="LEFT"><FONT FACE="Myriad Pro" SIZE="10" COLOR="#000000" LETTERSPACING="0" KERNING="0"></FONT></P></TEXTFORMAT>				
+					]]>
+						</mx:htmlText>
+					</mx:Text>
+				</mx:Canvas>
+			</mx:AddChild>
+		</mx:State>
+		
+		
+		<mx:State name="galerie" enterState="{handleEnterGalerie(event)}" exitState="{handleExitGalerie(event)}">
+			<mx:AddChild position="lastChild">
+				<mx:Image x="328" y="92" source="../images/mp_titre_galerie.png"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<components:Galerie id="galerie" idCategorie="1204" x="323" y="123" width="672" height="399"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Canvas id="canvasApercu" x="0" y="0" width="100%" height="100%"
+					backgroundColor="#FFFFFF" backgroundAlpha="0.8"
+					visible="false"
+					showEffect="showEffect" hideEffect="cacheHideEffect"
+					click="{canvasApercu.visible=false;labelGalerie.visible=false;canvasApercu.removeAllChildren();if(videoZoomee != null)videoZoomee.stop();}"
+					effectEnd="{viderCanvasApercu(event)}">
+				</mx:Canvas>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Image source="../images/mp_ss_titre_retour_galerie.png" id="labelGalerie"
+						visible="false"
+						showEffect="showEffect" hideEffect="hideEffect"
+						x="290.5" y="552"/>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	
+	
+	<mx:Script>
+		<![CDATA[
+			import com.iconeo.components.Tarifs;
+			import com.iconeo.events.GalerieEvent;
+			import com.iconeo.remote.RemoteService;
+			
+			import mx.controls.Alert;
+			import mx.events.BrowserChangeEvent;
+			import mx.events.EffectEvent;
+			import mx.events.FlexEvent;
+			import mx.events.MetadataEvent;
+			import mx.events.StateChangeEvent;
+			import mx.managers.BrowserManager;
+			import mx.managers.IBrowserManager;
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.http.mxml.HTTPService;
+		
+			[Embed(source="../ttf/MYRIADPR.TTF", fontName="myriadPro")]
+			private var _myriadPro:Class;
+
+			[Bindable]
+			private var flag:Boolean = true;
+			
+			private var clickOnceMail:Boolean = false;
+			private var clickOnceNom:Boolean = false;
+			private var clickOnceMessage:Boolean = false;
+			
+			
+			private var imageZoomee:Image;
+			
+			private var videoZoomee:VideoDisplay;
+			
+			private var bm:IBrowserManager;
+
+			private function init():void{
+				RemoteService.init();
+				var timer:Timer = new Timer(5000, 0);
+				timer.addEventListener(TimerEvent.TIMER, timerHandler);
+				timer.start();
+				
+				//Gestion de l'historique
+	            bm = BrowserManager.getInstance();
+	
+	            bm.addEventListener(BrowserChangeEvent.BROWSER_URL_CHANGE, onUrlChange);
+	
+	            bm.init("", "Madison piercing, atelier de piercing Bordeaux, bijoux - Michel Tattoo Family");
+	            bm.setTitle("Madison piercing, atelier de piercing Bordeaux, bijoux - Michel Tattoo Family");
+	            
+	        	bm.setFragment('page=' + currentState);
+	            this.addEventListener(StateChangeEvent.CURRENT_STATE_CHANGE, onStateChange);
+			}
+			
+	        public function onUrlChange(evt:BrowserChangeEvent):void {
+        		var fragment:String = bm.fragment;
+        		var page:String = fragment.substr(fragment.indexOf("=")+1, fragment.length);
+	        	currentState = page;
+	        }
+	        
+	        private function onStateChange(evt:StateChangeEvent):void {
+	        	bm.setFragment('page=' + currentState);
+	        }
+
+			
+    		
+    		private function viderCanvasApercu(e:EffectEvent):void{
+    			if(e.effectInstance == hideEffect){
+    				canvasApercu.removeAllChildren();
+    			}
+    		}
+			
+        	private function timerHandler(e:TimerEvent):void{
+        		flag=!flag;
+        	}
+        	
+			/**
+			 * Prend en charge la touche entrée pour valider le form contact
+			 */
+			private function handleKeyDown(event:KeyboardEvent):void{
+				if(event.keyCode == Keyboard.ENTER){
+					envoyerFormulaireContact();
+				}
+			}
+			
+			private function envoyerFormulaireContact():void{
+				if (email.text=="" || !validateEmail(email.text)){
+					var alerta:Alert = Alert.show("Votre email n'est pas valide.");
+					alerta.styleName = "alertBox";
+				}else if(nom.text==""){	
+					var alerta:Alert = Alert.show("Veuillez indiquer votre nom svp.");
+					alerta.styleName = "alertBox";
+				}else if(message.text==""){	
+					var alerta:Alert = Alert.show("Veuillez entrer un message.");
+					alerta.styleName = "alertBox";
+				}else{
+					var httpService:HTTPService = new HTTPService();
+					httpService.url = "http://www.madisonpiercing.fr/mail.php";
+					httpService.method="POST";
+					httpService.useProxy = false;
+					httpService.request = {nom: nom.text, email: email.text, message: message.text};
+					httpService.addEventListener(ResultEvent.RESULT, handleMailresult);
+					httpService.send();
+				}
+			}
+			
+			
+			private function handleMailresult(event:ResultEvent):void{
+				if(event.result=="OK"){
+					var alerta:Alert = Alert.show("Votre message à été envoyé.");
+					alerta.styleName = "alertBox";
+
+					email.text = "";
+					nom.text ="";
+					message.text ="";
+				}else{
+					
+				}
+			}
+			
+			 private function validateEmail(str:String):Boolean {
+	            var pattern:RegExp = /(\w|[_.\-])+@((\w|-)+\.)+\w{2,4}+/;
+	            var result:Object = pattern.exec(str);
+	            if(result == null) {
+	                return false;
+	            }
+	            return true;
+	        }
+
+			
+			private function handleEnterGalerie(event:FlexEvent):void{
+				galerie.addEventListener(GalerieEvent.AFFICHAGE_MEDIA, afficherMedia);
+			}
+			
+			private function handleExitGalerie(event:FlexEvent):void{
+				galerie.removeEventListener(GalerieEvent.AFFICHAGE_MEDIA, afficherMedia);
+			}
+			
+			private function afficherMedia(event:GalerieEvent):void{
+				canvasApercu.visible = true;
+				labelGalerie.visible = true;
+				
+				var pattern:String = ".*\.flv$"
+				
+				//Si ce media n'est pas un flv, c'est une image
+				if(event.urlMedia.match(pattern) == null){
+					imageZoomee = new Image();
+					imageZoomee.addEventListener(Event.INIT, chargementImageComplet);
+					imageZoomee.load(event.urlMedia);
+				} else {
+					videoZoomee = new VideoDisplay();
+					videoZoomee.addEventListener(MetadataEvent.METADATA_RECEIVED, chargementVideoComplet);
+					videoZoomee.source = event.urlMedia;
+					canvasApercu.addChild(videoZoomee);
+				}
+			}
+			
+			private function chargementImageComplet(e:Event):void {
+				//TODO ajouter le titre de la diapo
+				imageZoomee.x = (canvasApercu.width-imageZoomee.contentWidth)/2;
+				imageZoomee.y = (canvasApercu.height-imageZoomee.contentHeight)/2;
+				canvasApercu.addChild(imageZoomee);
+				
+			}
+			
+			private function chargementVideoComplet(e:Event):void {
+				videoZoomee.x = (canvasApercu.width-videoZoomee.videoWidth)/2;
+				videoZoomee.y = (canvasApercu.height-videoZoomee.videoHeight)/2;
+				
+				trace("********************************************************");
+				trace("********************************************************");
+				trace("********************************************************");
+				trace("videoZoomee.x = (cache.width-videoZoomee.videoWidth)/2");
+				trace("videoZoomee.x = " + canvasApercu.width + "-" + videoZoomee.videoWidth + "/2 = " + videoZoomee.x);
+				trace("videoZoomee.y = (cache.height-videoZoomee.videoHeight)/2");
+				trace("videoZoomee.y = " + canvasApercu.height + "-" + videoZoomee.videoHeight + "/2 = " + videoZoomee.y);
+				trace("********************************************************");
+				trace("********************************************************");
+				trace("********************************************************");
+				
+				
+				
+				videoZoomee.play();
+			}
+			
+		]]>
+	</mx:Script>
+
+
+</mx:Application>
